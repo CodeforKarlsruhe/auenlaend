@@ -1,0 +1,104 @@
+{
+    "en": {
+        "yes": "Yes",
+        "no": "No",
+        "hello": "Hello",
+        "mode": "Mode",
+        "light": "Light",
+        "dark": "Dark",
+        "menu": "Menu",
+        "chatbot": "Chatbot",
+        "info": "Info",
+        "logo": "Auenlaend Logo",
+        "rheinauen": "Rhine Meadows",
+        "input": "Enter your message",
+        "vuestic": {
+            "select": "Select",
+            "noOptions": "No options available"
+        },
+        "intro": {
+            "text": "KarlA2, the virtual Auen ranger",
+            "imprint": "Imprint",
+            "privacy": "Privacy Policy",
+            "usage": "Terms of Use",
+            "help": "Help"
+        },
+        "introContent": {
+            "title": "Welcome to KarlA2 in AUEN-LÄND",
+            "text": "KarlA2 is the virtual Auen ranger who has immediate information on:\nthe Rhine meadow habitats of Karlsruhe, flora and fauna (up to 143 animal and 64 plant species), opening hours, exhibitions, events and directions to NAZKA, environmental and nature conservation topics, as well as current air quality values (ozone, AQI, etc.).",
+            "imprint": "Imprint\nThere is nothing here yet.",
+            "privacy": "Privacy Policy\nThere is nothing here yet.",
+            "usage": "Terms of Use\nHere",
+            "help": "Help\nLike any other chatbot, KarlA2 is not perfect.",
+            "start": "Start Chat"
+        }
+    },
+    "de": {
+        "yes": "Ja",
+        "no": "Nein",
+        "hello": "Hallo",
+        "mode": "Modus",
+        "light": "Hell",
+        "dark": "Dunkel",
+        "menu": "Menü",
+        "chatbot": "Chatbot",
+        "logo": "Auenlaend Logo",
+        "info": "Info",
+        "input": "Geben Sie Ihre Nachricht ein",
+        "rheinauen": "Rheinauen",
+        "vuestic": {
+            "select": "Auswahl",
+            "noOptions": "Keine Optionen verfügbar"
+        },
+        "intro": {
+            "text": "KarlA2, die virtuelle Auen‑Rangerin",
+            "imprint": "Impressum",
+            "privacy": "Datenschutz",
+            "usage": "Nutzungsbedingungen",
+            "help": "Hilfe"
+        },
+        "introContent": {
+            "title": "Willkommen bei KarlA2 in AUEN-LÄND",
+            "text": "KarlA2 ist die virtuelle Auen‑Rangerin, die sofort Auskünfte bereit hat zu:\nden Rheinau‑Lebensräumen von Karlsruhe, Flora und Fauna (bis zu 143 Tier‑ und 64 Pflanzenarten), Öffnungszeiten, Ausstellungen, Veranstaltungen und Anfahrt des NAZKA, Umweltschutz‑ und Naturschutz‑Themen, sowie aktuellen Luftqualitätswerten (Ozon, AQI usw.).",
+            "imprint": "Impressum\nHier steht noch nichts.",
+            "privacy": "Datenschutz\nHier steht noch nichts.",
+            "usage": "Nutzungsbedingungen\nHier",
+            "help": "Hilfe\nWie jeder andere Chatbot auch, ist KarlA2 nicht perfekt.",
+            "start": "Chat starten"
+        }
+    },
+    "fr": {
+        "yes": "Oui",
+        "no": "Non",
+        "hello": "Bonjour",
+        "mode": "Mode",
+        "light": "Clair",
+        "dark": "Sombre",
+        "menu": "Menu",
+        "info": "Info",
+        "logo": "Logo Auenlaend",
+        "chatbot": "Chatbot",
+        "input": "Entrez votre message",
+        "rheinauen": "Prairies du Rhin",
+        "vuestic": {
+            "select": "Sélectionner",
+            "noOptions": "Aucune option disponible"
+        },
+        "intro": {
+            "text": "KarlA2, le garde‑ranger virtuel des Auen",
+            "imprint": "Impressum",
+            "privacy": "Politique de confidentialité",
+            "usage": "Conditions d'utilisation",
+            "help": "Aide"
+        },
+        "introContent": {
+            "title": "Bienvenue à KarlA2 dans AUEN-LÄND",
+            "text": "KarlA2 est la garde‑ranger virtuelle des prairies qui dispose d'informations immédiates sur :\nles habitats des prairies du Rhin à Karlsruhe, la flore et la faune (jusqu'à 143 espèces animales et 64 espèces végétales), les heures d'ouverture, les expositions, les événements et l'itinéraire vers le NAZKA, les sujets liés à l'environnement et à la conservation de la nature, ainsi que les valeurs actuelles de la qualité de l'air (ozone, AQI, etc.).",
+            "imprint": "Impressum\nIl n'y a encore rien ici.",
+            "privacy": "Politique de confidentialité\nIl n'y a encore rien ici.",
+            "usage": "Conditions d'utilisation\nIci",
+            "help": "Aide\nComme tout autre chatbot, KarlA2 n'est pas parfait.",
+            "start": "Démarrer le chat"
+        }
+    }
+}
