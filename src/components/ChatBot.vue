@@ -14,6 +14,11 @@ const frameSrc = ref<string | null>(null);
 
 type MsgType = { text: string; type: string };
 
+const props = withDefaults(defineProps<{
+    useInfo?: boolean;
+}>(), {
+    useInfo: false,
+});
 
 const emit = defineEmits<{
     (e: 'message', message: { text: string; type: string }): void;
@@ -77,7 +82,7 @@ const clear = (): void => {
 
 <template>
     <div class="chatbot-container">
-        <div class="info">
+        <div v-if="props.useInfo" class="info">
             <InfoPane :hdr="hdr" :text="text" :alt="alt" :src="src" :audioSrc="audioSrc" :frameSrc="frameSrc"/>
         </div>
         <div class="chat">
@@ -114,7 +119,10 @@ const clear = (): void => {
 }
 .chat {
     width:100%;
+    height:100%;
+    /*    
     height: 70%;
+    */
     font-size: 16px;
     color: var(--va-on-background-primary, #000);
     overflow: auto;
@@ -137,7 +145,10 @@ const clear = (): void => {
         margin-right: 16px;
     }
     .chat {
+        width:100%;
+        /*
         width: 60%;
+        */
         height: 100%;
         flex: 1;
         background-image: url("/img/auen_square.jpg");

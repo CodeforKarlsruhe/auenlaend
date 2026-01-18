@@ -116,7 +116,7 @@ onMounted(() => {
 .bot-image {
     min-width:30%;
 }
-
+/*
 img {
   display: block;
   margin-top: 12px;
@@ -127,7 +127,7 @@ img {
   margin-left: auto;
   margin-right: auto;
 }
-
+*/
 label {
   display: block;
   margin-top: 8px;

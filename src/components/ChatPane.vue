@@ -5,6 +5,8 @@ import BotResponse from './BotResponse.vue';
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 
+const loading = ref<boolean>(false);
+
 type Message = {
     text: string;
     type: 'user' | 'bot' | string;
@@ -51,6 +53,7 @@ const appendChatMessage = (message: { text: string; type: string }) => {
         //chatMessages.value = [];
         return;
     }
+    loading.value = true;
     console.log("Appending chat message:", message);
     chatMessages.value.push(message);
 
@@ -99,6 +102,7 @@ const appendChatMessage = (message: { text: string; type: string }) => {
             console.log("Appending autobot message:", botMsg);
             chatMessages.value.push(botMsg);
             await scrollHistoryToBottom();
+            loading.value = false;
         }, 1000);
     }
 
@@ -139,10 +143,13 @@ onMounted(() => {
 
         <VaInput v-model="chatInput" class="mb-6 input" :placeholder="t('input')"
             :autofocus="true"
+            :disabled="loading"
             @keyup.enter="appendChatMessage({ text: chatInput, type: 'user' }); chatInput = ''" 
             >
             <template #append>
-                <VaIcon name="send" class="mr-4 ml-4" color="secondary"
+                <VaIcon v-if="loading" name="refresh" spin class="mr-4 ml-4" color="secondary"
+                />
+                <VaIcon v-else name="send" class="mr-4 ml-4" color="secondary"
                     @click="appendChatMessage({ text: chatInput, type: 'user' }); chatInput = ''" 
                 />
             </template>
