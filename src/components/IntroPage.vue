@@ -16,6 +16,13 @@ const emit = defineEmits<{
             </VaCardContent>
         </va-card>
         <va-card>
+            <VaCardContent>
+                <va-button @click="emit('start')" color="primary" class="ml-2">
+                    {{ t('introContent.start') }}
+                </va-button>
+            </VaCardContent>
+        </va-card>
+        <va-card>
             <va-card-title>{{ t('intro.imprint') }}</va-card-title>
             <VaCardContent>
                 {{ t('introContent.imprint') }}
@@ -37,13 +44,6 @@ const emit = defineEmits<{
             <va-card-title>{{ t('intro.help') }}</va-card-title>    
             <VaCardContent>
                 {{ t('introContent.help') }}
-            </VaCardContent>
-        </va-card>
-        <va-card>
-            <VaCardContent>
-                <va-button @click="emit('start')" color="primary" class="ml-2">
-                    {{ t('introContent.start') }}
-                </va-button>
             </VaCardContent>
         </va-card>
     </div>

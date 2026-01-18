@@ -12,6 +12,7 @@
         "logo": "Auenlaend Logo",
         "rheinauen": "Rhine Meadows",
         "input": "Enter your message",
+        "openNew": "Open in new tab",
         "vuestic": {
             "select": "Select",
             "noOptions": "No options available"
@@ -45,6 +46,7 @@
         "logo": "Auenlaend Logo",
         "info": "Info",
         "input": "Geben Sie Ihre Nachricht ein",
+        "openNew": "In neuem Tab öffnen",
         "rheinauen": "Rheinauen",
         "vuestic": {
             "select": "Auswahl",
@@ -79,6 +81,7 @@
         "logo": "Logo Auenlaend",
         "chatbot": "Chatbot",
         "input": "Entrez votre message",
+        "openNew": "Ouvrir dans un nouvel onglet",
         "rheinauen": "Prairies du Rhin",
         "vuestic": {
             "select": "Sélectionner",
