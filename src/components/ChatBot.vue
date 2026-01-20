@@ -82,10 +82,10 @@ const clear = (): void => {
 
 <template>
     <div class="chatbot-container">
-        <div v-if="props.useInfo" class="info">
+        <div class="info" :class="useInfo?'':'chat_only' ">
             <InfoPane :hdr="hdr" :text="text" :alt="alt" :src="src" :audioSrc="audioSrc" :frameSrc="frameSrc"/>
         </div>
-        <div class="chat">
+        <div class="chat" :class="useInfo?'':'chat_only' ">
             <ChatPane @message="msg"
             @show-image="image"
             @show-frame="frame"
@@ -117,12 +117,13 @@ const clear = (): void => {
     height: 30%;
     margin-bottom: 12px;
 }
+.info.chat_only {
+    display: none;
+}
+
 .chat {
     width:100%;
-    height:100%;
-    /*    
     height: 70%;
-    */
     font-size: 16px;
     color: var(--va-on-background-primary, #000);
     overflow: auto;
@@ -130,6 +131,11 @@ const clear = (): void => {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.chat.chat_only {
+    display: block;
+    height:100%;
 }
 
 /* Desktop: 700px and up — info left of chat, full height, info width 40% */
@@ -144,15 +150,20 @@ const clear = (): void => {
         margin-bottom: 0;
         margin-right: 16px;
     }
+    .info.chat_only {
+        display: none;
+    }
     .chat {
-        width:100%;
-        /*
         width: 60%;
-        */
         height: 100%;
         flex: 1;
         background-image: url("/img/auen_square.jpg");
     }
+    .chat.chat_only {
+        display: block;
+        width:100%;
+    }
+
 }
 
 </style>

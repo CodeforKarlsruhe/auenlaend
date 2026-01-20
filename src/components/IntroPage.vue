@@ -32,6 +32,7 @@ const emit = defineEmits<{
             <va-card-title>{{ t('intro.privacy') }}</va-card-title>
             <VaCardContent>
                 {{ t('introContent.privacy') }}
+                Hier findest du Informationen zum Datenschutz: [Datenschutz](https:\/\/nazka.de\/datenschutz)
             </VaCardContent>
         </va-card>
         <va-card>

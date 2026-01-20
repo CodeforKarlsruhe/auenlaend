@@ -104,6 +104,27 @@ onMounted(() => {
       // ignore if applyPreset isn't available yet or fails
     }
   }
+
+  // make a check if backend is running at /api/ with a get resquest. should return 200 and {status: "ok"}
+  fetch('/api/').then(response => {
+    if (!response.ok) {
+      console.error("APP: Backend API is not reachable:", response.statusText);
+    } else {
+      console.log("APP: Backend API is reachable.");
+      response.json().then(data => {
+        if (data.status === "ok") {
+          console.log("APP: Backend API status:", data.status);
+        } else {
+          console.error("APP: Backend API returned unexpected status:", data);
+        }
+      }).catch(error => {
+        console.error("APP: Error parsing Backend API response:", error);
+      });
+    }
+  }).catch(error => {
+    console.error("APP: Error while trying to reach Backend API:", error);
+  });
+
 })
 
 

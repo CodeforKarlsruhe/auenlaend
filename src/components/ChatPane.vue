@@ -174,7 +174,7 @@ onMounted(() => {
     /*
     height: calc(100% - 5rem);
     */
-    max-height: calc(80% - 6rem);
+    max-height: calc(100% - 6rem);
     width: 100%;
     box-sizing: border-box;
     position: relative;
