@@ -193,11 +193,17 @@ const appendChatMessage = async (message: { text: string; type: string }) => {
             if (backendPostCheck.status == 200) {
                 console.log(`APP: Backend API dummy post completed`);
                 break
-            } else {
+            }
+            if (backendPostCheck.status == 202) {
                 console.log(`APP: Backend API dummy post delayed`);
                 confirm({message: t('delayInfo'),cancelText:t('delayCancel'),title:t('delayTitle')}).then((ok) => ok).catch(() => { console.log('User cancelled the delayed response confirmation')});
                 repeat = true;
+            } else {
+                console.log(`APP: Backend API dummy post error status: ${backendPostCheck.status}`);
+                repeat = false;
+                break
             }
+
         }
         console.log("Recevied:", backendPostCheck.data);
         const botMsg: Message = formatBotMessage(backendPostCheck.data);

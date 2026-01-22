@@ -1,44 +1,4 @@
 {
-    "en": {
-        "yes": "Yes",
-        "no": "No",
-        "hello": "Hello",
-        "mode": "Mode",
-        "light": "Light",
-        "dark": "Dark",
-        "menu": "Menu",
-        "chatbot": "Chatbot",
-        "info": "Info",
-        "logo": "Auenlaend Logo",
-        "rheinauen": "Rhine Meadows",
-        "input": "Enter your message",
-        "openNew": "Open in new tab",
-        "delayInfo": "The response may take a few seconds...",
-        "delayCancel": "Cancel",
-        "delayTitle": "Delay",
-        "vuestic": {
-            "select": "Select",
-            "noOptions": "No options available",
-            "ok": "OK",
-            "cancel": "Cancel"
-        },
-        "intro": {
-            "text": "KarlA2, the virtual Auen ranger",
-            "imprint": "Imprint",
-            "privacy": "Privacy Policy",
-            "usage": "Terms of Use",
-            "help": "Help"
-        },
-        "introContent": {
-            "title": "Welcome to KarlA2 in AUEN-LÄND",
-            "text": "KarlA2 is the virtual Auen ranger who has immediate information on:\nthe Rhine meadow habitats of Karlsruhe, flora and fauna (up to 143 animal and 64 plant species), opening hours, exhibitions, events and directions to NAZKA, environmental and nature conservation topics, as well as current air quality values (ozone, AQI, etc.).",
-            "imprint": "Imprint\nThere is nothing here yet.",
-            "privacy": "Privacy Policy\nThere is nothing here yet.",
-            "usage": "Terms of Use\nHere",
-            "help": "Help\nLike any other chatbot, KarlA2 is not perfect.",
-            "start": "Start Chat"
-        }
-    },
     "de": {
         "yes": "Ja",
         "no": "Nein",
@@ -56,6 +16,10 @@
         "delayInfo": "Die Antwort kann einige Sekunden dauern...",
         "delayCancel": "Abbrechen",
         "delayTitle": "Verzögerung",
+        "bot":{
+            "options":"Auswahlmöglichkeiten",
+            "response":"Antwort"
+        },
         "vuestic": {
             "select": "Auswahl",
             "noOptions": "Keine Optionen verfügbar",
@@ -79,6 +43,50 @@
             "start": "Chat starten"
         }
     },
+    "en": {
+        "yes": "Yes",
+        "no": "No",
+        "hello": "Hello",
+        "mode": "Mode",
+        "light": "Light",
+        "dark": "Dark",
+        "menu": "Menu",
+        "chatbot": "Chatbot",
+        "info": "Info",
+        "logo": "Auenlaend Logo",
+        "rheinauen": "Rhine Meadows",
+        "input": "Enter your message",
+        "openNew": "Open in new tab",
+        "delayInfo": "The response may take a few seconds...",
+        "delayCancel": "Cancel",
+        "delayTitle": "Delay",
+        "bot":{
+            "options":"Options",
+            "response":"Response"
+        },
+        "vuestic": {
+            "select": "Select",
+            "noOptions": "No options available",
+            "ok": "OK",
+            "cancel": "Cancel"
+        },
+        "intro": {
+            "text": "KarlA2, the virtual Auen ranger",
+            "imprint": "Imprint",
+            "privacy": "Privacy Policy",
+            "usage": "Terms of Use",
+            "help": "Help"
+        },
+        "introContent": {
+            "title": "Welcome to KarlA2 in AUEN-LÄND",
+            "text": "KarlA2 is the virtual Auen ranger who has immediate information on:\nthe Rhine meadow habitats of Karlsruhe, flora and fauna (up to 143 animal and 64 plant species), opening hours, exhibitions, events and directions to NAZKA, environmental and nature conservation topics, as well as current air quality values (ozone, AQI, etc.).",
+            "imprint": "Imprint\nThere is nothing here yet.",
+            "privacy": "Privacy Policy\nThere is nothing here yet.",
+            "usage": "Terms of Use\nHere",
+            "help": "Help\nLike any other chatbot, KarlA2 is not perfect.",
+            "start": "Start Chat"
+        }
+    },
     "fr": {
         "yes": "Oui",
         "no": "Non",
@@ -96,6 +104,10 @@
         "delayInfo": "La réponse peut prendre quelques secondes...",
         "delayCancel": "Annuler",
         "delayTitle": "Délai",
+        "bot":{
+            "options":"Options",
+            "response":"Réponse"
+        },
         "vuestic": {
             "select": "Sélectionner",
             "noOptions": "Aucune option disponible",

@@ -5,11 +5,11 @@ import axios, { type AxiosResponse } from 'axios';
 // Define the base URL for the backend API
 const BASE_URL = '/api'; // Adjust the URL as needed
 
-const createEmptyResponse = (): AxiosResponse<any> => {
+const createEmptyResponse = (status: number,text: string): AxiosResponse<any> => {
     return {
         data: null,
-        status: 0,
-        statusText: '',
+        status: status,
+        statusText: text,
         headers: {},
         config: {} as any,
         request: {} as any
@@ -26,7 +26,8 @@ export const postToBackend = async (data: any, repeat: boolean = false): Promise
         return response;
     } catch (error) {
         console.error('Error posting to backend:', error);
-        return createEmptyResponse();
+        const r = createEmptyResponse(-1,error as string);
+        return r;
     }
 };
 
@@ -37,7 +38,8 @@ export const getFromBackend = async (params?: any): Promise<AxiosResponse<any>> 
         return response;
     } catch (error) {
         console.error('Error getting from backend:', error);
-        return createEmptyResponse();
+        const r = createEmptyResponse(-1,error as string);
+        return r;
     }
 };
 
@@ -47,6 +49,6 @@ export const handleBackendResponse = (response: AxiosResponse<any>): AxiosRespon
         return response;
     } else {
         console.error('Backend responded with an error:', response.status, response.statusText);
-        return createEmptyResponse();
+        return createEmptyResponse(response.status, response.statusText);
     }
 };
