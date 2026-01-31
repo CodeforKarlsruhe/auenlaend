@@ -31,7 +31,6 @@ const chatInput = ref<string>("");
 const historyPane = ref<HTMLElement | null>(null);
 
 let autoBot = true;
-let repeat = false;
 
 const emit = defineEmits<{
     (e: 'message', message: { text: string; type: string }): void;
@@ -176,35 +175,26 @@ const appendChatMessage = async (message: { text: string; type: string }) => {
             postMsg.context.last_intent = lastIntent
             postMsg.context.last_input = lastUserInput;
             postMsg.context.lang = locale.value;
+            postMsg.sequence += 1;
             // some advanced context handling could go here
             if (postMsg.context.intent && (!postMsg.context.options || postMsg.context.options.length == 0)) {
                 delete postMsg.context.intent;
             }
 
         } else {
-            postMsg = { input: message.text, session: "", context: {lang: locale.value } };
+            postMsg = { input: message.text, session: "", sequence:1, context: {lang: locale.value } };
         }
 
         let backendPostCheck: AxiosResponse<any>;
-        while (true) {
-            const backendPost = await postToBackend(postMsg,repeat)
-            backendPostCheck = handleBackendResponse(backendPost)
-            console.log("APP: Backend dummy post response:", backendPostCheck)
-            if (backendPostCheck.status == 200) {
-                console.log(`APP: Backend API dummy post completed`);
-                break
-            }
-            if (backendPostCheck.status == 202) {
-                console.log(`APP: Backend API dummy post delayed`);
-                confirm({message: t('delayInfo'),cancelText:t('delayCancel'),title:t('delayTitle')}).then((ok) => ok).catch(() => { console.log('User cancelled the delayed response confirmation')});
-                repeat = true;
-            } else {
-                console.log(`APP: Backend API dummy post error status: ${backendPostCheck.status}`);
-                repeat = false;
-                break
-            }
-
+        const backendPost = await postToBackend(postMsg)
+        backendPostCheck = handleBackendResponse(backendPost)
+        console.log("APP: Backend dummy post response:", backendPostCheck)
+        if (backendPostCheck.status == 200) {
+            console.log(`APP: Backend API dummy post completed`);
+        } else {
+            console.log(`APP: Backend API dummy post error status: ${backendPostCheck.status}`);
         }
+
         console.log("Recevied:", backendPostCheck.data);
         const botMsg: Message = formatBotMessage(backendPostCheck.data);
         botMsg.backendData = backendPostCheck.data;

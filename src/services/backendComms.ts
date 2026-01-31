@@ -17,9 +17,9 @@ const createEmptyResponse = (status: number,text: string): AxiosResponse<any> =>
 };
 
 // Function to send a POST request to the backend
-export const postToBackend = async (data: any, repeat: boolean = false): Promise<AxiosResponse<any>> => {
+export const postToBackend = async (data: any): Promise<AxiosResponse<any>> => {
     try {
-        const payload = { ...data, repeat };
+        const payload = { ...data};
         const response = await axios.post(`${BASE_URL}`, payload, {
             headers: { 'Content-Type': 'application/json' }
         });

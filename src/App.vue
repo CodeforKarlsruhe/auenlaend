@@ -153,18 +153,15 @@ onMounted(async () => {
         console.error('APP: Failed to set localStorage backendReady', e)
       }
       // try a dummy post
-      const dummyPost = { input: "wie macht man co2 messung", session: "", repeat: true, context: { "lang": "de", "type": "123", "history": "bla bla" } }
-      for (const repeat of [false, true]) {
-        dummyPost.repeat = repeat
-        console.log(`APP: Sending dummy post to backend with repeat=${repeat}:`, dummyPost)
-        const backendPost = await postToBackend(dummyPost, repeat)
-        const backendPostCheck = handleBackendResponse(backendPost)
-        console.log("APP: Backend dummy post response:", backendPostCheck)
-        if (backendPostCheck.data.status) {
-          console.log(`APP: Backend API dummy post completed with repeat=${repeat}`);
-        } else {
-          console.log(`APP: Backend API dummy post delayed with repeat=${repeat}`);
-        }
+      const dummyPost = { input: "wie macht man co2 messung", session: "", sequence:0, repeat: true, context: { "lang": "de", "type": "123", "history": "bla bla" } }
+      console.log(`APP: Sending dummy post to backend:`, dummyPost)
+      const backendPost = await postToBackend(dummyPost)
+      const backendPostCheck = handleBackendResponse(backendPost)
+      console.log("APP: Backend dummy post response:", backendPostCheck)
+      if (backendPostCheck.data.status) {
+        console.log(`APP: Backend API dummy post completed`);
+      } else {
+        console.log(`APP: Backend API dummy post status: {backendPostCheck.data.status}`);
       }
     } else {
       console.error("APP: Backend API returned unexpected status:", backendCheck.data.status);
