@@ -101,22 +101,31 @@ const formatBotMessage =  (message: any): Message => {
         loading.value = false;
         return botMsg;
     }
-    if (message.context.output) {
-        if (message.context.output.text)
-            botMsg.text = message.context.output.text || ""
-        if (message.context.output.image) {
-            botMsg.src = message.context.output.image
-        }
-        if (message.context.output.audio) {
-            botMsg.audioSrc = message.context.output.audio
-        }
-        if (message.context.output.link) {
-            botMsg.link = message.context.output.link
-        }
-        if (message.context.options) {
-            console.log("Bot message has options:", message.context.options);
-            botMsg.options = message.context.options
-        }
+    if (!message.message) {
+        console.log("No message in bot message, not appending.");
+        loading.value = false;
+        return botMsg;
+    }
+    // message.message field might be array, due to some bug in backend? Handle that: use first element only
+    if (Array.isArray(message.message.text)) message.message.text = message.message.text[0];
+    if (Array.isArray(message.message.link)) message.message.link = message.message.link[0];
+    if (Array.isArray(message.message.audio)) message.message.audio = message.message.audio[0];
+
+    if (message.message.text) 
+        botMsg.text = message.message.text || ""
+    if (message.message.image) {
+        botMsg.src = message.message.image
+    }
+    if (message.message.audio) {
+        botMsg.audioSrc = message.message.audio
+    }
+    if (message.message.link) {
+        botMsg.link = message.message.link.url
+        //botMsg.src = message.message.link.url
+    }
+    if (message.context.options) {
+        console.log("Bot message has options:", message.context.options);
+        botMsg.options = message.context.options
     }
     if (message.context.options && Array.isArray(message.context.options)) {
         console.log("Bot message has options:", message.context.options);
@@ -170,11 +179,10 @@ const appendChatMessage = async (message: { text: string; type: string }) => {
             const lastMsg = botResponses[botResponses.length - 1];
             const lastIntent = lastMsg?.backendData?.context.intent || "";
             postMsg = { ...lastMsg?.backendData}
-            postMsg.input = message.text
-            if (postMsg.context) delete postMsg.context.output;
+            postMsg.message = {"text": message.text}
             postMsg.context.last_intent = lastIntent
             postMsg.context.last_input = lastUserInput;
-            postMsg.context.lang = locale.value;
+            postMsg.lang = locale.value;
             postMsg.sequence += 1;
             // some advanced context handling could go here
             if (postMsg.context.intent && (!postMsg.context.options || postMsg.context.options.length == 0)) {
@@ -182,17 +190,17 @@ const appendChatMessage = async (message: { text: string; type: string }) => {
             }
 
         } else {
-            postMsg = { input: message.text, session: "", sequence:1, context: {lang: locale.value } };
+            postMsg = { message:{"text": message.text}, session: "", sequence:1, lang: locale.value, context: {} };
         }
 
         let backendPostCheck: AxiosResponse<any>;
         const backendPost = await postToBackend(postMsg)
         backendPostCheck = handleBackendResponse(backendPost)
-        console.log("APP: Backend dummy post response:", backendPostCheck)
+        console.log("APP: Backend post response:", backendPostCheck)
         if (backendPostCheck.status == 200) {
-            console.log(`APP: Backend API dummy post completed`);
+            console.log(`APP: Backend API post completed`);
         } else {
-            console.log(`APP: Backend API dummy post error status: ${backendPostCheck.status}`);
+            console.log(`APP: Backend API post error status: ${backendPostCheck.status}`);
         }
 
         console.log("Recevied:", backendPostCheck.data);

@@ -11,7 +11,7 @@ const props = defineProps<{
   src?: string | null;
   audioSrc?: string | null;
   link?: string | null;
-  options?: { label: string; title: string }[] | null;
+  options?: { text: string; title: string }[] | null;
   idx: number;
   last: boolean;
 }>();
@@ -115,7 +115,7 @@ onMounted(() => {
           <div class="options-pane mt-4">
             <va-button v-for="(option, idx) in options" :key="idx" class="m-2 mr-2" color="primary"
               @click="emit('optionSelected', option.title)" :disabled="!last">
-              {{ option.label }}
+              {{ option.text }}
             </va-button>
           </div>
         </VaCardContent>
