@@ -2,7 +2,7 @@
 import { useI18n } from 'vue-i18n';
 const { t } = useI18n();
 
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, computed } from 'vue';
 
 const zoomed = ref(false);
 
@@ -30,6 +30,12 @@ const idxClicked = () => {
   console.log("Index clicked:", props.idx);
   emit('indexClicked', props.idx);
 }
+
+const optionText = (option: { text?: string | null; title: string } | null | undefined) => {
+  if (!option) return "";
+  console.log("Computing option text for option:", option);
+  return (option.text && option.text !== "") ? option.text : option.title;
+};
 
 onMounted(() => {
   console.log("BotResponse mounted with props:", props);
@@ -115,7 +121,7 @@ onMounted(() => {
           <div class="options-pane mt-4">
             <va-button v-for="(option, idx) in options" :key="idx" class="m-2 mr-2" color="primary"
               @click="emit('optionSelected', option.title)" :disabled="!last">
-              {{ option.text }}
+              {{ optionText(option) }}
             </va-button>
           </div>
         </VaCardContent>
