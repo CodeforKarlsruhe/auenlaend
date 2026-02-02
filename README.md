@@ -1,5 +1,21 @@
 # AUENLÄND ChatBot
 
+## Status (2026-02-02)
+
+### Live preview
+
+https://auenlaend.ok-lab-karlsruhe.de/
+
+
+### Front-End
+This repo: https://github.com/CodeforKarlsruhe/auenlaend 
+
+### Backend
+
+Companion backend: https://github.com/CodeforKarlsruhe/auenBot
+
+
+
 
 ## Original Version
 
