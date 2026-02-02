@@ -11,8 +11,7 @@ https://auenlaend.ok-lab-karlsruhe.de/
 This repo: https://github.com/CodeforKarlsruhe/auenlaend 
 
 ### Backend
-
-Companion backend: https://github.com/CodeforKarlsruhe/auenBot
+Work with companion backend: https://github.com/CodeforKarlsruhe/auenBot
 
 
 
@@ -23,8 +22,4 @@ https://www.lubw.baden-wuerttemberg.de/blog/-/blogs/einfuhrung-des-chatbots-karl
 
 Deactivated 2025-12-31 due to missing funding
 
-## Update (this version)
-
-Should work together with the [AuenBot](https://github.com/CodeforKarlsruhe/auenBot) as backend. 
-Communication not yet implemented
 
