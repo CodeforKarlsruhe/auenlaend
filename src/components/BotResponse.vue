@@ -4,6 +4,8 @@ const { t } = useI18n();
 
 import { onMounted, ref } from 'vue';
 
+import karla from '@/assets/icons/karla.svg';
+
 const zoomed = ref(false);
 
 const props = defineProps<{
@@ -49,6 +51,7 @@ onMounted(() => {
   <div class="bot-pane">
     <VaCard>
       <VaCardTitle class="bot-hdr">
+        <VaImage :src="karla" fit="contain" :ratio="1" class="inline-block w-6 h-6 mr-2 bot-logo" />
         {{ $t("bot.response") }}
       </VaCardTitle>
 
@@ -236,6 +239,14 @@ label {
 .va-card {
   background-color: light-dark(colors.$dash-bg2-light, colors.$dash-bg2-dark);
 }
+
+.bot-logo {
+  filter: drop-shadow(0 0 2px var(--va-info));
+  width:2rem;
+  height:2rem;
+}
+
+
 </style>
 
 <style>
