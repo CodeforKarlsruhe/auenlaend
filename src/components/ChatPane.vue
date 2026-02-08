@@ -193,18 +193,23 @@ const appendChatMessage = async (message: { text: string; type: string }) => {
 
         let backendPostCheck: AxiosResponse<any>;
         const backendPost = await postToBackend(postMsg)
+        console.log("APP: Backend post raw response:", backendPost)
         backendPostCheck = handleBackendResponse(backendPost)
         console.log("APP: Backend post response:", backendPostCheck)
+        let botMsg: Message = {} as Message;
         if (backendPostCheck.status == 200) {
             console.log(`APP: Backend API post completed`);
+            console.log("Recevied:", backendPostCheck.data);
+            botMsg = formatBotMessage(backendPostCheck.data);
+            botMsg.backendData = backendPostCheck.data;
+            console.log("Appending bot message from backend:", botMsg);
         } else {
             console.log(`APP: Backend API post error status: ${backendPostCheck.status}`);
+            console.log("Recevied:", backendPostCheck.data);
+            botMsg = formatBotMessage({"message":{"text":"Some error occured"},"context":{}}); // show error message in bot response
+            console.log("Appending bot message from backend:", botMsg);
         }
 
-        console.log("Recevied:", backendPostCheck.data);
-        const botMsg: Message = formatBotMessage(backendPostCheck.data);
-        botMsg.backendData = backendPostCheck.data;
-        console.log("Appending bot message from backend:", botMsg);
         chatMessages.value.push(botMsg);
         await scrollHistoryToBottom();
         loading.value = false;
